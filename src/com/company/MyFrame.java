@@ -1,21 +1,17 @@
 package com.company;
 
-import org.opencv.core.Mat;
-import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.imgproc.Imgproc;
-
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.plaf.basic.BasicOptionPaneUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
 import java.io.File;
 
 
 public class MyFrame extends JFrame {
     private String imagePath;
+
     public MyFrame() {
         super(("Not Hello world"));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -24,14 +20,21 @@ public class MyFrame extends JFrame {
         setLayout(new FlowLayout(FlowLayout.RIGHT));
         JButton pobierz = new JButton("pobierz");
         JButton gray = new JButton("gray");
+        JButton scale = new JButton("scale");
+        JButton rotate = new JButton("rotate");
+        JButton blur = new JButton("blur");
+        JButton filter2D= new JButton("2D");
+        JButton sqrBox= new JButton("sqrBox");
         add(pobierz);
         add(gray);
+        add(scale);
+        add(rotate);
+        add(blur);
+        add(filter2D);
+        add(sqrBox);
         JLabel label = new JLabel(); //labelka z oryginalnym obrazkiem
         add(label);
 
-
-        JLabel label2 = new JLabel(); //labelka ze zmienionym obrazkiem
-        add(label2);
 
         pobierz.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -43,8 +46,8 @@ public class MyFrame extends JFrame {
                 if (result == JFileChooser.APPROVE_OPTION) {
                     File selectedFile = file.getSelectedFile();
                     imagePath = selectedFile.getAbsolutePath();
-                    label.setIcon(ReasizeImage(imagePath));
-                    label2.setIcon(ReasizeImage(imagePath));
+                    label.setIcon(new ScaleImageConverter().scaleImage(imagePath,400,300));
+
                 } else if (result == JFileChooser.CANCEL_OPTION) {
                     System.out.println("No File Select");
                 }
@@ -52,48 +55,43 @@ public class MyFrame extends JFrame {
         });
         gray.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                    Mat srcImg = Imgcodecs.imread(imagePath);
-                    Mat dstImg = new Mat(srcImg.rows(), srcImg.cols(), srcImg.type());
-                    Imgproc.cvtColor(srcImg, dstImg, Imgproc.COLOR_RGB2GRAY);
+                ImageIcon image = new GreyImageConverter().toGrayImageIcon(imagePath);
+                label.setIcon(image);
+            }
+        });
+        scale.addActionListener(new ActionListener() {
 
-                ImageIcon image = new ImageIcon(toBufferedImage(dstImg));
-                label2.setIcon(image);
-
-
-
+            public void actionPerformed(ActionEvent e) {
+                ImageIcon image = new ScaleImageConverter().scaleImage(imagePath,100,100);
+                label.setIcon(image);
+            }
+        });
+        rotate.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ImageIcon image = new RotateImageConverter().rotateImageIcon(imagePath,90);
+                label.setIcon(image);
+            }
+        });
+        blur.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ImageIcon image = new FilterImageConverter().blurImageIcon(imagePath);
+                label.setIcon(image);
+            }
+        });
+        filter2D.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ImageIcon image = new FilterImageConverter().filter2DImageIcon(imagePath);
+                label.setIcon(image);
+            }
+        });
+        sqrBox.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ImageIcon image = new FilterImageConverter().sqrBoxFilterImageIcon(imagePath);
+                label.setIcon(image);
             }
         });
         setVisible(true);
     }
 
-    public ImageIcon ReasizeImage(String ImagePath) {
-
-
-
-        ImageIcon MyImage = new ImageIcon(ImagePath);
-        Image img = MyImage.getImage();
-        Image newImg = img.getScaledInstance(400, 300, Image.SCALE_SMOOTH);
-        ImageIcon image = new ImageIcon(newImg);
-        return image;
-    };
-    private BufferedImage toBufferedImage(Mat m) {
-        if (!m.empty()) {
-            int type = BufferedImage.TYPE_BYTE_GRAY;
-            if (m.channels() > 1) {
-                type = BufferedImage.TYPE_3BYTE_BGR;
-            }
-            int bufferSize = m.channels() * m.cols() * m.rows();
-            byte[] b = new byte[bufferSize];
-            m.get(0, 0, b); // get all the pixels
-            BufferedImage image = new BufferedImage(m.cols(), m.rows(), type);
-            final byte[] targetPixels = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
-            System.arraycopy(b, 0, targetPixels, 0, b.length);
-            return image;
-        }
-
-        return null;
-    }
-
 }
-
 
