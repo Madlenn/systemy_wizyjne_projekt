@@ -22,16 +22,15 @@ public class MyFrame extends JFrame {
         JButton scale = new JButton("scale");
         JButton rotate = new JButton("rotate");
         JButton blur = new JButton("blur");
-        JButton filter2D= new JButton("2D");
-        JButton sqrBox= new JButton("sqrBox");
-        JButton light= new JButton("light");
-        JButton edgeDetection= new JButton("edgeDetection");
-        JButton erosion= new JButton("erosion");
-        JButton dilate= new JButton("dilate");
-        JButton brightness= new JButton("brightness");
-        JButton skeletonization= new JButton("skeletonization");
-        JButton thresholding= new JButton("thresholding");
-
+        JButton filter2D = new JButton("2D");
+        JButton sqrBox = new JButton("sqrBox");
+        JButton light = new JButton("light");
+        JButton edgeDetection = new JButton("edgeDetection");
+        JButton erosion = new JButton("erosion");
+        JButton dilate = new JButton("dilate");
+        JButton brightness = new JButton("brightness");
+        JButton skeletonization = new JButton("skeletonization");
+        JButton thresholding = new JButton("thresholding");
 
 
         add(pobierz);
@@ -63,7 +62,7 @@ public class MyFrame extends JFrame {
                 if (result == JFileChooser.APPROVE_OPTION) {
                     File selectedFile = file.getSelectedFile();
                     imagePath = selectedFile.getAbsolutePath();
-                    label.setIcon(new ScaleImageConverter().scaleImage(imagePath,400,300));
+                    label.setIcon(new ScaleImageConverter(imagePath, 400, 300).scaleImage());
 
                 } else if (result == JFileChooser.CANCEL_OPTION) {
                     System.out.println("No File Select");
@@ -72,82 +71,81 @@ public class MyFrame extends JFrame {
         });
         gray.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ImageIcon image = new GreyImageConverter().toGrayImageIcon(imagePath);
+                ImageIcon image = new GreyImageConverter(imagePath, 400, 300).toGrayImageIcon();
                 label.setIcon(image);
             }
         });
         scale.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
-                ImageIcon image = new ScaleImageConverter().scaleImage(imagePath,100,100);
+                ImageIcon image = new ScaleImageConverter(imagePath, 100, 100).scaleImage();
                 label.setIcon(image);
             }
         });
         rotate.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ImageIcon image = new RotateImageConverter().rotateImageIcon(imagePath,90);
+                ImageIcon image = new RotateImageConverter(imagePath, 400, 300).rotateImageIcon(90);
                 label.setIcon(image);
             }
         });
         blur.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ImageIcon image = new FilterImageConverter().blurImageIcon(imagePath);
+                ImageIcon image = new FilterImageConverter(imagePath, 400, 300).blurImageIcon();
                 label.setIcon(image);
             }
         });
         filter2D.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ImageIcon image = new FilterImageConverter().filter2DImageIcon(imagePath);
+                ImageIcon image = new FilterImageConverter(imagePath, 400, 300).filter2DImageIcon();
                 label.setIcon(image);
             }
         });
         sqrBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ImageIcon image = new FilterImageConverter().sqrBoxFilterImageIcon(imagePath);
+                ImageIcon image = new FilterImageConverter(imagePath, 400, 300).sqrBoxFilterImageIcon();
                 label.setIcon(image);
             }
         });
         light.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ImageIcon image = new FilterImageConverter().lightFilterImageIcon(imagePath);
+                ImageIcon image = new FilterImageConverter(imagePath, 400, 300).lightFilterImageIcon();
                 label.setIcon(image);
             }
         });
         edgeDetection.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ImageIcon image = new EdgeDetection().edgeDetection(imagePath);
+                ImageIcon image = new EdgeDetection(imagePath, 400, 300).edgeDetection();
                 label.setIcon(image);
             }
         });
         erosion.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ImageIcon image = new ErosionDilation().erosion(imagePath);
+                ImageIcon image = new ErosionDilation(imagePath, 400, 300).erosion();
                 label.setIcon(image);
             }
         });
         dilate.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ImageIcon image = new ErosionDilation().dilation(imagePath);
+                ImageIcon image = new ErosionDilation(imagePath, 400, 300).dilation();
                 label.setIcon(image);
             }
         });
         brightness.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ImageIcon image = new Brightness().brightness(imagePath);
+                ImageIcon image = new Brightness(imagePath, 400, 300).brightness();
                 label.setIcon(image);
             }
         });
         skeletonization.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ImageIcon image = new Skeletonization().skeletonization(imagePath);
+                ImageIcon image = new Skeletonization(imagePath, 400, 300).skeletonization();
                 label.setIcon(image);
             }
         });
         thresholding.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ImageIcon image = new Thresholding().thresholding(imagePath);
-                ImageIcon resizedImage = new ScaleImageConverter().scaleImage(image,400,300);
-                label.setIcon(resizedImage);
+                ImageIcon image = new Thresholding(imagePath, 400, 300).thresholding();
+                label.setIcon(image);
             }
         });
         setVisible(true);

@@ -8,16 +8,20 @@ import javax.swing.*;
 
 public class FilterImageConverter extends ImageConverter {
 
-    public ImageIcon blurImageIcon(String imagePath) {
+    public FilterImageConverter(String imagePath, int width, int height) {
+        super(imagePath, width, height);
+    }
+
+    public ImageIcon blurImageIcon() {
         Mat srcImg = Imgcodecs.imread(imagePath);
         Mat dstImg = new Mat(srcImg.rows(), srcImg.cols(), srcImg.type());
 
         Imgproc.blur(srcImg, dstImg, new Size(30, 30));
 
-        return new ImageIcon(toBufferedImage(dstImg));
+        return  getResizedImageIcon( new ImageIcon(toBufferedImage(dstImg)),width,height);
     }
 
-    public ImageIcon filter2DImageIcon(String imagePath) {
+    public ImageIcon filter2DImageIcon() {
         Point anchor;
         double delta;
         int ddepth = -1;
@@ -31,19 +35,19 @@ public class FilterImageConverter extends ImageConverter {
         Core.multiply(ones, new Scalar(1 / (double) (kernel_size * kernel_size)), kernel);
         Imgproc.filter2D(srcImg, dstImg, ddepth, kernel, anchor, delta, Core.BORDER_CONSTANT);
 
-        return new ImageIcon(toBufferedImage(dstImg));
+        return  getResizedImageIcon(new ImageIcon(toBufferedImage(dstImg)),width,height);
     }
 
-    public ImageIcon sqrBoxFilterImageIcon(String imagePath) {
+    public ImageIcon sqrBoxFilterImageIcon() {
         Mat srcImg = Imgcodecs.imread(imagePath);
         Mat dstImg = new Mat(srcImg.rows(), srcImg.cols(), srcImg.type());
 
         Imgproc.bilateralFilter(srcImg, dstImg, 50, 75, 75, Core.BORDER_CONSTANT);
 
-        return new ImageIcon(toBufferedImage(dstImg));
+        return  getResizedImageIcon(new ImageIcon(toBufferedImage(dstImg)),width,height);
     }
 
-    public ImageIcon lightFilterImageIcon(String imagePath) {
+    public ImageIcon lightFilterImageIcon() {
 
         Mat srcImg = Imgcodecs.imread(imagePath);
         Mat dstImg = new Mat(srcImg.rows(), srcImg.cols(), srcImg.type());
@@ -54,7 +58,7 @@ public class FilterImageConverter extends ImageConverter {
 
         Imgproc.filter2D(srcImg, dstImg, CvType.CV_8U, M, anchor, 0, Core.BORDER_DEFAULT);
 
-        return new ImageIcon(toBufferedImage(dstImg));
+        return  getResizedImageIcon(new ImageIcon(toBufferedImage(dstImg)),width,height);
 
         /*{
         implementacja reczna

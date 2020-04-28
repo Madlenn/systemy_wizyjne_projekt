@@ -8,8 +8,11 @@ import org.opencv.imgproc.Imgproc;
 import javax.swing.*;
 
 public class ErosionDilation extends ImageConverter {
+    public ErosionDilation(String imagePath, int width, int height) {
+        super(imagePath, width, height);
+    }
 
-    public ImageIcon erosion(String imagePath) {
+    public ImageIcon erosion() {
         int kernelSize=0;
         Mat srcImg = Imgcodecs.imread(imagePath);
         Mat dstImg = new Mat(srcImg.rows(), srcImg.cols(), srcImg.type());
@@ -18,10 +21,10 @@ public class ErosionDilation extends ImageConverter {
 
        Imgproc.erode(srcImg,dstImg,kernel);
 
-        return new ImageIcon(toBufferedImage(dstImg));
+        return  getResizedImageIcon(new ImageIcon(toBufferedImage(dstImg)),width,height);
     }
 
-    public ImageIcon dilation(String imagePath) {
+    public ImageIcon dilation() {
         int kernelSize=5;
         Mat srcImg = Imgcodecs.imread(imagePath);
         Mat dstImg = new Mat(srcImg.rows(), srcImg.cols(), srcImg.type());
@@ -30,7 +33,7 @@ public class ErosionDilation extends ImageConverter {
 
         Imgproc.dilate(srcImg,dstImg,kernel);
 
-        return new ImageIcon(toBufferedImage(dstImg));
+        return  getResizedImageIcon(new ImageIcon(toBufferedImage(dstImg)),width,height);
     }
 
 }

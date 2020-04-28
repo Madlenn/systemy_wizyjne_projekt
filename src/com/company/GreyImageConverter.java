@@ -9,12 +9,16 @@ import javax.swing.*;
 
 public class GreyImageConverter extends ImageConverter {
 
-    public ImageIcon toGrayImageIcon(String imagePath) {
+    public GreyImageConverter(String imagePath, int width, int height) {
+        super(imagePath, width, height);
+    }
+
+    public ImageIcon toGrayImageIcon() {
         Mat srcImg = Imgcodecs.imread(imagePath);
         Mat dstImg = new Mat(srcImg.rows(), srcImg.cols(), srcImg.type());
         Imgproc.cvtColor(srcImg, dstImg, Imgproc.COLOR_RGB2GRAY);
 
-        return new ImageIcon(toBufferedImage(dstImg));
+        return  getResizedImageIcon(new ImageIcon(toBufferedImage(dstImg)),width,height);
     }
 
 

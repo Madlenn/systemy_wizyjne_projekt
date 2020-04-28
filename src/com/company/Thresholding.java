@@ -12,7 +12,11 @@ import static org.opencv.imgproc.Imgproc.THRESH_BINARY;
 
 public class Thresholding extends ImageConverter {
 
-    public ImageIcon thresholding(String imagePath) {
+    public Thresholding(String imagePath, int width, int height) {
+        super(imagePath, width, height);
+    }
+
+    public ImageIcon thresholding() {
         Mat imgGray = new Mat();
         Mat srcImg = Imgcodecs.imread(imagePath);
         Mat dstImg = new Mat(srcImg.rows(), srcImg.cols(), srcImg.type());
@@ -23,7 +27,7 @@ public class Thresholding extends ImageConverter {
        // Mat result;
        // Imgproc.threshold(imgGray,imgGray,255,ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY, 15, 40);
 
-        return new ImageIcon(toBufferedImage(dstImg));
+        return  getResizedImageIcon(new ImageIcon(toBufferedImage(dstImg)),width,height);
     }
 
 

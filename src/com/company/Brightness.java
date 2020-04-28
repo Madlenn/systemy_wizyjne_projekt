@@ -7,14 +7,18 @@ import javax.swing.*;
 
 public class Brightness extends ImageConverter {
 
-    public ImageIcon brightness(String imagePath) {
+    public Brightness(String path, int width, int height) {
+        super(path, width, height);
+    }
+
+    public ImageIcon brightness() {
         double alpha = 2;
         double beta = 25;
         Mat srcImg = Imgcodecs.imread(imagePath);
         Mat dstImg = new Mat(srcImg.rows(), srcImg.cols(), srcImg.type());
         srcImg.convertTo(dstImg, -1, alpha, beta);
 
-        return new ImageIcon(toBufferedImage(dstImg));
+        return  getResizedImageIcon(new ImageIcon(toBufferedImage(dstImg)),width,height);
     }
 
 

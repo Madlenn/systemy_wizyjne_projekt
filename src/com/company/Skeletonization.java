@@ -9,7 +9,11 @@ import javax.swing.*;
 
 public class Skeletonization extends ImageConverter {
 
-    public ImageIcon skeletonization(String imagePath) {
+    public Skeletonization(String imagePath, int width, int height) {
+        super(imagePath, width, height);
+    }
+
+    public ImageIcon skeletonization() {
         Mat srcImg = Imgcodecs.imread(imagePath);
         Mat dstImg = new Mat(srcImg.rows(), srcImg.cols(), srcImg.type());
 //        Imgproc.cvtColor(srcImg, dstImg, Imgproc.COLOR_RGB2GRAY);
@@ -47,7 +51,7 @@ public class Skeletonization extends ImageConverter {
                 done = true;
         }
 
-        return new ImageIcon(toBufferedImage(skel));
+        return  getResizedImageIcon(new ImageIcon(toBufferedImage(skel)),width,height);
         //return new ImageIcon(toBufferedImage(dstImg));
     }
 

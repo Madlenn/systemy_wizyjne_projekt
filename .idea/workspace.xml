@@ -2,25 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d90332e0-04e3-4d52-b001-dc5986c73329" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/Brightness.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/EdgeDetection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/ErosionDilation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Skeletonization.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Thresholding.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/Brightness.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/Brightness.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/EdgeDetection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/EdgeDetection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/ErosionDilation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/ErosionDilation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/FilterImageConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/FilterImageConverter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$14.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$6.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/MyFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/ScaleImageConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/ScaleImageConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/Skeletonization.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/Skeletonization.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projekt/com/company/Thresholding.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projekt/com/company/Thresholding.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Brightness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Brightness.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/EdgeDetection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/EdgeDetection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/ErosionDilation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/ErosionDilation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/FilterImageConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/FilterImageConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/GreyImageConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GreyImageConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/ImageConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/ImageConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/MyFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MyFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/RotateImageConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/RotateImageConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/ScaleImageConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/ScaleImageConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Skeletonization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Skeletonization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Thresholding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Thresholding.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +112,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="447" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1585501146433" />
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1588109076749">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588109076749" />
     <state x="523" y="128" key="DetectedRootsChooserDialog" timestamp="1585492262855">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -106,26 +125,26 @@
     </state>
     <state x="473" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1585763253145" />
     <state x="591" y="194" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587809192359" />
-    <state width="1877" height="177" key="GridCell.Tab.0.bottom" timestamp="1588106991746">
+    <state width="1877" height="177" key="GridCell.Tab.0.bottom" timestamp="1588110011128">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="171" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587722435235" />
-    <state width="1877" height="177" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588106991746" />
-    <state width="1877" height="177" key="GridCell.Tab.0.center" timestamp="1588106991746">
+    <state width="1877" height="177" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588110011128" />
+    <state width="1877" height="177" key="GridCell.Tab.0.center" timestamp="1588110011127">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="171" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587722435235" />
-    <state width="1877" height="177" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588106991746" />
-    <state width="1877" height="177" key="GridCell.Tab.0.left" timestamp="1588106991746">
+    <state width="1877" height="177" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588110011127" />
+    <state width="1877" height="177" key="GridCell.Tab.0.left" timestamp="1588110011127">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="171" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587722435235" />
-    <state width="1877" height="177" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588106991746" />
-    <state width="1877" height="177" key="GridCell.Tab.0.right" timestamp="1588106991746">
+    <state width="1877" height="177" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588110011127" />
+    <state width="1877" height="177" key="GridCell.Tab.0.right" timestamp="1588110011127">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1493" height="171" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587722435235" />
-    <state width="1877" height="177" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588106991746" />
+    <state width="1877" height="177" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588110011127" />
     <state x="455" y="0" key="SettingsEditor" timestamp="1585500969348">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -135,10 +154,14 @@
     </state>
     <state x="849" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1587332020282" />
     <state x="1061" y="298" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588105817498" />
-    <state x="690" y="289" key="extract.method.dialog" timestamp="1587899630965">
+    <state x="603" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588109742158">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="289" key="extract.method.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587899630965" />
+    <state x="603" y="135" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588109742158" />
+    <state x="690" y="289" key="extract.method.dialog" timestamp="1588107982166">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="289" key="extract.method.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588107982166" />
     <state x="418" y="66" key="new project wizard" timestamp="1587332041810">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

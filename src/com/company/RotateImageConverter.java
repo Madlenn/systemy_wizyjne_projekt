@@ -11,7 +11,11 @@ import javax.swing.*;
 
 public class RotateImageConverter extends ImageConverter {
 
-    public ImageIcon rotateImageIcon(String imagePath, double angle) {
+    public RotateImageConverter(String imagePath, int width, int height) {
+        super(imagePath, width, height);
+    }
+
+    public ImageIcon rotateImageIcon(double angle) {
         Mat srcImg = Imgcodecs.imread(imagePath);
         Mat dstImg = new Mat();
 
@@ -29,7 +33,7 @@ public class RotateImageConverter extends ImageConverter {
         Size size = new Size(newWidth, newHeight);
         Imgproc.warpAffine(srcImg, dstImg, rotMatrix, size);
 
-        return new ImageIcon(toBufferedImage(dstImg));
+        return  getResizedImageIcon(new ImageIcon(toBufferedImage(dstImg)),width,height);
     }
 
 

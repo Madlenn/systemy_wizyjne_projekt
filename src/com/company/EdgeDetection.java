@@ -10,7 +10,11 @@ import java.awt.*;
 
 public class EdgeDetection extends ImageConverter {
 
-    public ImageIcon edgeDetection(String imagePath) {
+    public EdgeDetection(String imagePath, int width, int height) {
+        super(imagePath, width, height);
+    }
+
+    public ImageIcon edgeDetection() {
         Mat srcImg = Imgcodecs.imread(imagePath);
         Mat dstImg = new Mat(srcImg.rows(), srcImg.cols(), srcImg.type());
         Mat wide = new Mat();
@@ -18,7 +22,7 @@ public class EdgeDetection extends ImageConverter {
         Imgproc.Canny(dstImg, wide,50,150,3,false);
         wide.convertTo(dstImg, CvType.CV_8U);
 
-        return new ImageIcon(toBufferedImage(dstImg));
+        return  getResizedImageIcon(new ImageIcon(toBufferedImage(dstImg)),width,height);
     }
 
 }

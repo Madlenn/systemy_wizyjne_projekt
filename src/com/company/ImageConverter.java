@@ -2,12 +2,22 @@ package com.company;
 
 import org.opencv.core.Mat;
 
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 
-public  class ImageConverter {
+public abstract class ImageConverter {
 
+    protected String imagePath;
+    protected int width;
+    protected int height;
 
+    public ImageConverter(String imagePath, int width, int height) {
+        this.imagePath = imagePath;
+        this.width = width;
+        this.height = height;
+    }
 
     protected BufferedImage toBufferedImage(Mat m) {
         if (!m.empty()) {
@@ -25,5 +35,11 @@ public  class ImageConverter {
         }
 
         return null;
+    }
+
+    protected ImageIcon getResizedImageIcon(ImageIcon srcImg, int width, int height) {
+        Image img = srcImg.getImage();
+        Image newImg = img.getScaledInstance(width, height, Image.SCALE_SMOOTH);
+        return new ImageIcon(newImg);
     }
 }
