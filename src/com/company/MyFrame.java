@@ -2,7 +2,6 @@ package com.company;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.plaf.basic.BasicOptionPaneUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,6 +24,16 @@ public class MyFrame extends JFrame {
         JButton blur = new JButton("blur");
         JButton filter2D= new JButton("2D");
         JButton sqrBox= new JButton("sqrBox");
+        JButton light= new JButton("light");
+        JButton edgeDetection= new JButton("edgeDetection");
+        JButton erosion= new JButton("erosion");
+        JButton dilate= new JButton("dilate");
+        JButton brightness= new JButton("brightness");
+        JButton skeletonization= new JButton("skeletonization");
+        JButton thresholding= new JButton("thresholding");
+
+
+
         add(pobierz);
         add(gray);
         add(scale);
@@ -32,6 +41,14 @@ public class MyFrame extends JFrame {
         add(blur);
         add(filter2D);
         add(sqrBox);
+        add(light);
+        add(edgeDetection);
+        add(erosion);
+        add(dilate);
+        add(brightness);
+        add(skeletonization);
+        add(thresholding);
+
         JLabel label = new JLabel(); //labelka z oryginalnym obrazkiem
         add(label);
 
@@ -88,6 +105,49 @@ public class MyFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 ImageIcon image = new FilterImageConverter().sqrBoxFilterImageIcon(imagePath);
                 label.setIcon(image);
+            }
+        });
+        light.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ImageIcon image = new FilterImageConverter().lightFilterImageIcon(imagePath);
+                label.setIcon(image);
+            }
+        });
+        edgeDetection.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ImageIcon image = new EdgeDetection().edgeDetection(imagePath);
+                label.setIcon(image);
+            }
+        });
+        erosion.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ImageIcon image = new ErosionDilation().erosion(imagePath);
+                label.setIcon(image);
+            }
+        });
+        dilate.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ImageIcon image = new ErosionDilation().dilation(imagePath);
+                label.setIcon(image);
+            }
+        });
+        brightness.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ImageIcon image = new Brightness().brightness(imagePath);
+                label.setIcon(image);
+            }
+        });
+        skeletonization.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ImageIcon image = new Skeletonization().skeletonization(imagePath);
+                label.setIcon(image);
+            }
+        });
+        thresholding.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ImageIcon image = new Thresholding().thresholding(imagePath);
+                ImageIcon resizedImage = new ScaleImageConverter().scaleImage(image,400,300);
+                label.setIcon(resizedImage);
             }
         });
         setVisible(true);

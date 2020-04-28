@@ -5,7 +5,9 @@ import org.opencv.core.Mat;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 
-public class ImageConverter {
+public  class ImageConverter {
+
+
 
     protected BufferedImage toBufferedImage(Mat m) {
         if (!m.empty()) {
