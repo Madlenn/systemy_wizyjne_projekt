@@ -12,11 +12,12 @@ public class MyFrame extends JFrame {
     private String imagePath;
 
     public MyFrame() {
-        super(("Not Hello world"));
+        //super(("Not Hello world"));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 1000);
-        setLocation(50, 50);
-        setLayout(new FlowLayout(FlowLayout.RIGHT));
+        setSize(1200, 800);
+        setLocation(300, 90);
+        //setLayout(new FlowLayout(FlowLayout.CENTER));
+        setLayout (new FlowLayout());
         JButton pobierz = new JButton("pobierz");
         JButton gray = new JButton("gray");
         JButton scale = new JButton("scale");
@@ -31,7 +32,9 @@ public class MyFrame extends JFrame {
         JButton brightness = new JButton("brightness");
         JButton skeletonization = new JButton("skeletonization");
         JButton thresholding = new JButton("thresholding");
-
+        JButton histogram = new JButton("histogram");
+        JButton cc = new JButton("color conversion");
+        JButton negative = new JButton("negative");
 
         add(pobierz);
         add(gray);
@@ -47,10 +50,14 @@ public class MyFrame extends JFrame {
         add(brightness);
         add(skeletonization);
         add(thresholding);
+        add(histogram);
+        add(cc);
+        add(negative);
 
         JLabel label = new JLabel(); //labelka z oryginalnym obrazkiem
+        JLabel label2 = new JLabel();
         add(label);
-
+        add(label2);
 
         pobierz.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -62,7 +69,10 @@ public class MyFrame extends JFrame {
                 if (result == JFileChooser.APPROVE_OPTION) {
                     File selectedFile = file.getSelectedFile();
                     imagePath = selectedFile.getAbsolutePath();
+
                     label.setIcon(new ScaleImageConverter(imagePath, 400, 300).scaleImage());
+                    label.setHorizontalAlignment(JLabel.CENTER);
+                    label.setVerticalAlignment(JLabel.CENTER);
 
                 } else if (result == JFileChooser.CANCEL_OPTION) {
                     System.out.println("No File Select");
@@ -145,6 +155,26 @@ public class MyFrame extends JFrame {
         thresholding.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 ImageIcon image = new Thresholding(imagePath, 400, 300).thresholding();
+                label.setIcon(image);
+            }
+        });
+        histogram.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ImageIcon image = new Histogram(imagePath, 400, 300).histogram();
+                ImageIcon image2 = new Histogram(imagePath, 400, 300).histogram();
+                //label.setIcon(image);
+                label2.setIcon(image2);
+            }
+        });
+        cc.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ImageIcon image = new ColorSpaceConversion(imagePath, 400, 300).cc();
+                label.setIcon(image);
+            }
+        });
+        negative.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                ImageIcon image = new Negative(imagePath, 400, 300).negative();
                 label.setIcon(image);
             }
         });
