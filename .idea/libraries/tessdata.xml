@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="tessdata">
+    <CLASSES />
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://C:/Program Files (x86)/Tesseract-OCR/tessdata" />
+    </NATIVE>
+    <SOURCES />
+  </library>
+</component>
