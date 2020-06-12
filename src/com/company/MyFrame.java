@@ -1,5 +1,6 @@
 package com.company;
-compile group: 'net.sourceforge.tess4j', name: 'tess4j', version: '1.3.0'
+
+import com.asprise.ocr.Ocr;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -10,13 +11,13 @@ import java.io.File;
 public class MyFrame extends JFrame {
     private String imagePath;
 
-    public MyFrame() {
+    public MyFrame(String[] args) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1200, 800);
         setLocation(300, 90);
-        //setLayout(new FlowLayout(FlowLayout.CENTER));
+
         setLayout(new FlowLayout());
-        JButton pobierz = new JButton("pobierz");
+
         JButton gray = new JButton("gray");
         JButton scale = new JButton("scale");
         JButton rotate = new JButton("rotate");
@@ -33,14 +34,16 @@ public class MyFrame extends JFrame {
         JButton histogram = new JButton("histogram");
         JButton cc = new JButton("color conversion");
         JButton negative = new JButton("negative");
+        JButton OCR = new JButton("OCR");
+        JButton FD = new JButton("Face Detection");
 
+        JButton pobierz = new JButton("pobierz");
         add(pobierz);
 
-
         JLabel label = new JLabel(); //labelka z oryginalnym obrazkiem
-
         JLabel label2 = new JLabel();
-        add(label);
+
+        add(label, SwingConstants.CENTER);
         add(label2);
 
         pobierz.addActionListener(e -> {
@@ -54,7 +57,7 @@ public class MyFrame extends JFrame {
 
             if (result == JFileChooser.APPROVE_OPTION) {
                 String extension = getFileExtension(file);
-                if (!extension.equals(".jpeg")) {
+                if (!extension.equals(".jpg") && !extension.equals(".jpeg")) {
 
                     JOptionPane.showMessageDialog(null, "wybrałeś niepoprawny plik, wybierz .jpeg");
 
@@ -67,6 +70,7 @@ public class MyFrame extends JFrame {
                     label.setIcon(new ScaleImageConverter(imagePath, 400, 300).scaleImage());
                     label.setHorizontalAlignment(JLabel.CENTER);
                     label.setVerticalAlignment(JLabel.CENTER);
+                    setLayout(new FlowLayout(FlowLayout.LEFT));
                     add(gray);
                     add(scale);
                     add(rotate);
@@ -83,11 +87,23 @@ public class MyFrame extends JFrame {
                     add(histogram);
                     add(cc);
                     add(negative);
+                    add(OCR);
+                    add(FD);
                 }
 
             } else if (result == JFileChooser.CANCEL_OPTION) {
                 System.out.println("No File Select");
             }
+        });
+        OCR.addActionListener(e -> {
+            Ocr.main(args);
+            /*ImageIcon image = new OCR(imagePath, 400, 300);
+            label.setIcon(image);*/
+        });
+
+        FD.addActionListener(e -> {
+            ImageIcon image = new FaceDetection(imagePath,400,300).faceDetection();
+            label.setIcon(image);
         });
         gray.addActionListener(e -> {
             ImageIcon image = new GreyImageConverter(imagePath, 400, 300).toGrayImageIcon();
@@ -144,7 +160,6 @@ public class MyFrame extends JFrame {
         histogram.addActionListener(e -> {
             ImageIcon image = new Histogram(imagePath, 400, 300).histogram();
             ImageIcon image2 = new Histogram(imagePath, 400, 300).histogram();
-            //label.setIcon(image);
             label2.setIcon(image2);
         });
         cc.addActionListener(e -> {
@@ -176,21 +191,5 @@ public class MyFrame extends JFrame {
     }
 
 
-/*    private String getFileExtension(JFileChooser file) {
-        String extension = "";
-        try {
-            if (file != null ) {
-
-                String name = file.getSelectedFile().getName();
-                System.out.println(name);
-                extension = name.substring(name.lastIndexOf("."));
-            }
-        } catch (Exception e) {
-            extension = " ";
-        }
-
-        return extension;
-
-    }*/
 }
 

@@ -32,8 +32,9 @@ public class RotateImageConverter extends ImageConverter {
 
         Size size = new Size(newWidth, newHeight);
         Imgproc.warpAffine(srcImg, dstImg, rotMatrix, size);
+        
 
-        return  getResizedImageIcon(new ImageIcon(toBufferedImage(dstImg)),width,height);
+        return getResizedImageIcon(new ImageIcon(toBufferedImage(dstImg)), width, height);
     }
 
 

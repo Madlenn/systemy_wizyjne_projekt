@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="aocr">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/asprise-ocr-java-15.3.1-trial-windows/aocr.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
